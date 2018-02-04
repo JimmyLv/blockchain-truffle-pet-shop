@@ -7,7 +7,7 @@ import '../contracts/Adoption.sol';
 contract TestAdoption {
     Adoption adoption = Adoption(DeployedAddresses.Adoption());
  
-    function testUserCanAdoptPet() public {
+    function should_user_can_adopt_pet_by_id() public {
         // given
 
         // when
@@ -17,7 +17,7 @@ contract TestAdoption {
         Assert.equal(returnedId, 8, 'Adoption of pet Id 8 should be recorded.');
     }
 
-    function testGetAdopterAddressByPetId() public {
+    function should_get_adopter_address_by_pet_id() public {
         address expected = this;
 
         address adopter = adoption.adopters(8);
@@ -25,7 +25,7 @@ contract TestAdoption {
         Assert.equal(adopter, expected, 'Owner of pet Id 8 should be recorded.');
     }
 
-    function testGetAdopterAddressByPetIdInArray() public {
+    function should_get_adopter_address_by_pet_id_in_array() public {
         address expected = this;
 
         address[16] memory adopters = adoption.getAdopters();
